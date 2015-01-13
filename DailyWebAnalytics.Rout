@@ -1,0 +1,24 @@
+Loading required package: lubridate
+Loading required package: httr
+Loading required package: bitops
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:lubridate':
+
+    intersect, setdiff, union
+
+The following object is masked from 'package:stats':
+
+    filter
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Access Token successfully updated
+Status of Query:
+The API returned 668 results
+> proc.time()
+   user  system elapsed 
+   2.35    0.14    3.91 

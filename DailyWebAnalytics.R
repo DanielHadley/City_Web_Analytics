@@ -18,6 +18,8 @@ setwd("c:/Users/dhadley/Documents/GitHub/City_Web_Analytics/")
 # Load the token object
 load("oauth_token")
 
+ValidateToken(oauth_token)
+
 
 # # This example assumes that a token object is already created
 # # Create a list of Query Parameters
@@ -78,6 +80,8 @@ yesterday <- today - 1
 
 ga.df$pageTitle <- gsub("| City of Somerville Website", "", ga.df$pageTitle)
 
+# write.csv(ga.df, "K:/Somerstat/Common/Data/2015_Web_Analytics/data/LastTwentyFour.csv")
+
 LastTwentyFour <- ga.df %>%
   filter(pageviews > 100) %>%
   filter(pageTitle != "City of Somerville, Massachusetts") 
@@ -89,8 +93,9 @@ ggplot(LastTwentyFour, aes(x=reorder(pageTitle, pageviews)  , y=pageviews)) +
   ylab("# of Unique Pageviews") + 
   scale_y_continuous(labels = comma) 
 
-ggsave(paste("./plots/scratch/", yesterday, "_LastTwentyFour.png", sep=""), dpi=300, width=5, height=5)
+# ggsave(paste("./plots/scratch/", yesterday, "_LastTwentyFour.png", sep=""), dpi=300, width=5, height=5)
 ggsave("./plots/LastTwentyFour.png", dpi=300, width=5, height=5)
+# ggsave("K:/Somerstat/Common/Data/2015_Web_Analytics/plots/LastTwentyFour.png", dpi=300, width=5, height=5)
 
 
 
