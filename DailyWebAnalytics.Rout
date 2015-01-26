@@ -18,7 +18,7 @@ The following objects are masked from 'package:base':
 
 Access Token successfully updated
 Status of Query:
-The API returned 668 results
+The API returned 448 results
 > proc.time()
    user  system elapsed 
-   2.35    0.14    3.91 
+   2.18    0.70    3.93 

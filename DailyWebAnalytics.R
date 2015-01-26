@@ -10,6 +10,7 @@ library(tidyr)
 setwd("c:/Users/dhadley/Documents/GitHub/City_Web_Analytics/")
 
 
+
 # # Generate the oauth_token object
 # oauth_token <- Auth(client.id = "158458440150-pn993ueqskf8ph9k8tdd1vrdjjein8sp.apps.googleusercontent.com",
 #                     client.secret = "wyHGCl9-MzL1RP3kormjuyYG")
@@ -74,13 +75,13 @@ my.theme <-
 # dates
 today <- Sys.Date()
 yesterday <- today - 1
-
+time <- Sys.time()
 
 #### Top from last day #### 
 
 ga.df$pageTitle <- gsub("| City of Somerville Website", "", ga.df$pageTitle)
 
-# write.csv(ga.df, "K:/Somerstat/Common/Data/2015_Web_Analytics/data/LastTwentyFour.csv")
+write.csv(ga.df, "//fileshare1/Departments/Somerstat/Common/Data/2015_City_Web_Analytics/raw_data/LastTwentyFour.csv")
 
 LastTwentyFour <- ga.df %>%
   filter(pageviews > 100) %>%
@@ -89,13 +90,13 @@ LastTwentyFour <- ga.df %>%
 
 ggplot(LastTwentyFour, aes(x=reorder(pageTitle, pageviews)  , y=pageviews)) + 
   geom_bar(stat = "identity", colour="white", fill=nice_blue) + 
-  my.theme + ggtitle(paste("Top Web Views From Yesterday:", yesterday)) + xlab("City Webpage") +
+  my.theme + ggtitle(paste("Top Web Views From Last 24 Hrs:", time)) + xlab("City Webpage") +
   ylab("# of Unique Pageviews") + 
   scale_y_continuous(labels = comma) 
 
 # ggsave(paste("./plots/scratch/", yesterday, "_LastTwentyFour.png", sep=""), dpi=300, width=5, height=5)
 ggsave("./plots/LastTwentyFour.png", dpi=300, width=5, height=5)
-# ggsave("K:/Somerstat/Common/Data/2015_Web_Analytics/plots/LastTwentyFour.png", dpi=300, width=5, height=5)
+ggsave("//fileshare1/Departments/Somerstat/Common/Data/2015_City_Web_Analytics/plots/LastTwentyFour.png", dpi=300, width=5, height=5)
 
 
 
