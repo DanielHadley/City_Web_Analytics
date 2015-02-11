@@ -8,6 +8,7 @@ library(tidyr)
 
 # working Directory and packages #
 setwd("c:/Users/dhadley/Documents/GitHub/City_Web_Analytics/")
+setwd("/Users/dphnrome/Documents/Git/City_Web_Analytics/")
 
 
 
